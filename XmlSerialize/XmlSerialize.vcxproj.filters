@@ -15,18 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\SimpleSolution\SimpleSolution\main.cpp">
+    <ClCompile Include="SimpleSolution.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SimpleSolution\SimpleSolution\tinyxml2.cpp">
+    <ClCompile Include="tinyxml2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\SimpleSolution\SimpleSolution\tinyxml2.h">
+    <ClInclude Include="tinyxml2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SimpleSolution\SimpleSolution\XmlSerializer.h">
+    <ClInclude Include="XmlSerializer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
