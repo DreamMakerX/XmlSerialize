@@ -27,13 +27,13 @@ public:
     void toXml(XMLElement* elem) const {
         XmlSerializer::writeElement(elem, "Name", name);
         XmlSerializer::writeElement(elem, "Id", id);
-        XmlSerializer::writeElementObject(elem, "Grades", grades);
+        XmlSerializer::writeElementArray(elem, "Grades", grades);
     }
 
     void fromXml(XMLElement* elem) {
         XmlSerializer::readElement(elem, "Name", name);
         XmlSerializer::readElement(elem, "Id", id);
-        XmlSerializer::readElementObject(elem, "Grades", grades);
+        XmlSerializer::readElementArray(elem, "Grades", grades);
     }
 };
 

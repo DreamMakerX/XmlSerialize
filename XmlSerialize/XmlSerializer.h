@@ -38,23 +38,23 @@ public:
     }
 
     template <typename T>
-    static void writeElementObject(XMLElement* parentElem, const std::string& elementName, const T& object) {
+    static void writeElementArray(XMLElement* parentElem, const std::string& elementName, const T& object) {
         XMLElement* elem = parentElem->GetDocument()->NewElement(elementName.c_str());
         object.toXml(elem);
         parentElem->InsertEndChild(elem);
     }
 
     template <typename T>
-    static void writeElementObject(XMLElement* parentElem, const std::string& elementName, const std::vector<T>& objects) {
+    static void writeElementArray(XMLElement* parentElem, const std::string& elementName, const std::vector<T>& objects) {
         XMLElement* vectorElem = parentElem->GetDocument()->NewElement(elementName.c_str());
         for (const auto& object : objects) {
-            writeElementObject(vectorElem, elementName + "Item", object);
+            writeElementArray(vectorElem, elementName + "Item", object);
         }
         parentElem->InsertEndChild(vectorElem);
     }
 
     template <typename T>
-    static void readElementObject(XMLElement* parentElem, const std::string& elementName, T& object, bool array = false) {
+    static void readElementArray(XMLElement* parentElem, const std::string& elementName, T& object, bool array = false) {
         XMLElement* elem;
         if (array)
         {
@@ -70,12 +70,12 @@ public:
     }
 
     template <typename T>
-    static void readElementObject(XMLElement* parentElem, const std::string& elementName, std::vector<T>& objects) {
+    static void readElementArray(XMLElement* parentElem, const std::string& elementName, std::vector<T>& objects) {
        XMLElement* objectElem = parentElem->FirstChildElement(elementName.c_str());
        for (XMLElement* elem = objectElem->FirstChildElement(); elem; elem = elem->NextSiblingElement())
        {
            T object;
-           readElementObject(elem, elem->Name(), object, true);
+           readElementArray(elem, elem->Name(), object, true);
            objects.push_back(object);
        }
     }
